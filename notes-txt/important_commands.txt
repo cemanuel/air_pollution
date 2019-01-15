@@ -1,0 +1,519 @@
+# Accessing File
+
+Installing spark
+download folder spark in github repo
+pip3 install findspark
+pip3 install spark
+sudo apt-get install default-jre
+vim /etc/environment
+JAVA_HOME="/usr/lib/jvm/open-jdk"
+source /etc/environment
+
+0.) gcloud auth login
+1.) gsutil -m cp gs://es262-airquality/* gs://DEST_BUCKET_NAME
+	Example: gsutil -m cp -r gs://es262-airquality/*.csv gs://cs325b-es262-airquality
+			 cs325b-dataset-for-w
+			 gsutil -m cp -r gs://cs325b-es262-airquality/{00000011} cs325b-t
+			 gsuitl -m cp gs://cs325b-es262-airquality/00000011/00020265/00020265_2013* cs325b-dataset-for-week4-presentation/2013
+			 gsutil -m cp gs://cs325b-dataset-for-week4-presentation/00013342/2008/
+			 gsutil -m cp -r gs://cs325b-dataset-for-week4-presentation/tfRecord_datasets_by_webcamId_and_pmRange_skimage/TRAIN_raw_dataset_with_filePath_AND_webcamId_AND_webcamLat_AND_webcamLong_AND_year_AND_date_AND_hour_AND_range_AND_pm_ALLRANGES_webcamId_93_* cs325b-dataset-for-week4-presentation/tfRecord_datasets_by_webcamId_and_pmRange_skimage_testing
+			 gsutil -m cp -r gs://cs325b-dataset-for-week4-presentation/tfRecord_datasets_by_webcamId_and_pmrange_skimage/DEV_raw_dataset_with_filePath_AND_webcamId_AND_webcamLat_AND_webcamLong_AND_year_AND_date_AND_hour_AND_range_AND_pm_ALLRANGES_webcamId_93_* cs325b-dataset-for-week4-presentation/tfRecord_datasets_by_webcamId_and_pmRange_skimage_testing
+			 
+			 NOTE: you can also use gsutil for copying contents from the bucket into a directory on a local machine:
+
+			 gsutil -m cp -r gs://cs325b-dataset-for-week4-presentation/tfRecord_datasets_by_webcamId_and_pmRange_skimage/DEV_raw_dataset_with_filePath_AND_webcamId_AND_webcamLat_AND_webcamLong_AND_year_AND_date_AND_hour_AND_range_AND_pm_ALLRANGES_webcamId_1066_pmRange_00-09.tfrecord /Users/adele/Desktop/test
+
+
+			 gsutil -m cp -r cs325b-dataset-for-week4-presentation/tfRecord_datasets_by_webcamId_and_pmRange_skimage_testing 
+
+
+2.) sudo chmod 777 /home/dfd/mount_scripts/mount_bucket.sh
+3.) /home/dfd/mount_scripts/mount_bucket.sh [BUCKET_NAME]
+4.) cd /mnt/mounted_bucket
+
+
+
+# Computing SSH via using google cloud
+
+gcloud compute ssh --zone=us-west1-b --project=cs325b-project cs325b-air-quality-cpu-instance
+
+
+# Copying Files using
+
+gcloud auth login
+gcloud config set project PROJECT_ID
+gcloud compute scp --project=[PROJECT_ID] [NAME-OF-INSTANCE]:/mnt/mounted_bucket/Readme.rtf ~/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project
+
+gcloud compute scp --project=cs325b-project cs325b-air-quality-cpu-instance:/mnt/mounted_bucket/AMOS_AQ_daily.csv ~/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project
+
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-emanuel-instance-1:/mnt/mnt/mounted_bucket_csv_files/amos_weather_data.csv ~/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project/raw_data
+
+gcloud compute scp --project=cs325b-project  mannyldz956@cs325b-air-quality-cpu-instance:/home/mannyldz956/transmission_output_images/00017603/2013/00017603_20130127_212855.jpg ~/Desktop/2014
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-air-quality-cpu-instance:/mnt/mounted_bucket_for_csv_files/AMOS_AQ_hourly.csv ~/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project/raw_data
+
+gcloud compute scp --project=cs325b-project ~/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project/dilation_tensorflow_master/data/pretrained_dilation_camvid.pickle mannyldz956@cs325b-air-quality-cpu-instance:/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/dilation_tensorflow_master
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-air-quality-gpu-instance:/home/mannyldz956/output_images/00020265/2015/out_00020265_20150110_203630.jpg ~/Desktop
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-air-quality-cpu-instance:/home/mannyldz956/dark_channel_output_images.zip ~/Desktop/2015
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-cpu-instance-week5:/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/logs/0000000001_experiment_2018-02-06_07:38:52_DEHAZENET_experiment_week5_presentation/translate.ckpt-49.data-00000-of-00001 ~/Desktop
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-cpu-instance-week5:/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/logs/0000000001_experiment_2018-02-06_07:38:52_DEHAZENET_experiment_week5_presentation/translate.ckpt-49.meta ~/Desktop
+
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-cpu-instance-week5:/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/logs/0000000001_experiment_2018-02-06_07:38:52_DEHAZENET_experiment_week5_presentation/translate.ckpt-49.index ~/Desktop
+
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-cpu-instance-week5:/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/output_predicted_ranges_int.npy ~/Desktop
+
+
+gcloud compute scp --project=cs325b-project mannyldz956@cs325b-cpu-instance-week5:/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/output_true_ranges_int.npy ~/Desktop
+
+
+
+translate.ckpt-49.meta 
+
+
+# Installation
+
+
+ssh-keygen -t rsa -b 4096 -C "ecortes@stanford.edu"
+
+git clone git@github.com:cemanuel/CS325B-Big-Brother-Air-Quality-Group-.git
+
+
+export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
+echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get install gcsfuse
+
+
+
+sudo chmod a+w /mnt
+cd /mnt
+mkdir mnt
+cd mnt
+mkdir mounted_bucket
+
+gcsfuse --implicit-dirs cs325b-dataset-for-week4-presentation /mnt/mnt/mounted_bucket
+
+
+sudo apt-get install git**
+
+
+sudo apt-get install python-setuptools python-dev build-essential 
+
+sudo easy_install pip 
+
+https://www.python.org/downloads/release/python-352/
+
+sudo pip install virtualenv      # This may already be installed
+virtualenv -p python3.5 .env sour       # Create a virtual environment (python3)
+# Note: you can also use "virtualenv .env" to use your default python (usually python 2.7)
+source .env/bin/activate         # Activate the virtual environment
+
+
+source /home/dfd/env35/bin/activate if on a gpu
+
+#If using python 3
+	# mac
+	sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.3.0-py3-none-any.whl
+	# ubuntu
+	pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl
+#If using python 2
+	# mac
+	sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.3.0-py2-none-any.whl
+	# ubuntu
+pip install jupyter
+pip install numpy
+pip install matplotlib
+pip install seaborn
+pip install scipy
+pip install imageio
+pip install scikit-image
+pip install sklearn
+**********************************************************
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
+pip install gmaps
+jupyter nbextension enable --py --sys-prefix gmaps
+**********************************************************
+sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove
+sudo apt-get install build-essential
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt-get install libxvidcore-dev libx264-dev
+**********************************************************
+sudo apt-get install libgtk-3-dev
+sudo apt-get install libatlas-base-dev gfortran
+**********************************************************
+pip install opencv-python==3.4.0.12
+
+
+#Installing OpenCV - Make sure to run the above commands first (from the Section of Installation)
+# Based on the instructions for the following site: https://www.pyimagesearch.com/2015/06/15/install-opencv-3-0-and-python-2-7-on-osx/
+# https://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/
+
+Go to https://opencv.org/releases.html
+download https://github.com/opencv/opencv/archive/3.4.0.zip by Clicking on 'Sources'
+Go to https://github.com/opencv/opencv_contrib to download opencv_contrib 
+Place the downloaded folders in home directory of your air_quality_project folder
+	* [DIRECTORY_OF_AIR_QUALITY_PROJECT]/opencv
+	* [DIRECTORY_OF_AIR_QUALITY_PROJECT]/opencv_contrib
+cd [DIRECTORY_OF_AIR_QUALITY_PROJECT]/opencv
+
+brew install cmake pkg-config
+brew install jpeg libpng libtiff openexr
+brew install eigen tbb
+
+cd [Directory_Of_AIR_QUALITY_PROJECT]/opencv
+mkdir build
+cd build
+
+
+# For Python 3
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D OPENCV_EXTRA_MODULES_PATH=/Users/emanuelcortes/Documents/Senior_Year/Winter_Quarter_2018/CS199/opencv_contrib/modules \
+	-D PYTHON3_LIBRARY=/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/config-3.5m/libpython3.5.dylib \
+	-D PYTHON3_INCLUDE_DIR=/Library/Frameworks/Python.framework/Versions/3.5/include/python3.5m \
+	-D PYTHON3_EXECUTABLE=/Users/emanuelcortes/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project/.env/bin/python \
+	-D BUILD_opencv_python2=OFF \
+	-D BUILD_opencv_python3=ON \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D INSTALL_C_EXAMPLES=OFF \
+	-D BUILD_EXAMPLES=ON ..
+
+# For Python 3
+PY3_DIR=$HOME/.pyenv/versions/anaconda3-4.3.1
+export CPLUS_INCLUDE_PATH=$PY3_DIR/include/python3.6m && \
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D OPENCV_EXTRA_MODULES_PATH=/Users/emanuelcortes/Documents/Senior_Year/Winter_Quarter_2018/CS199/opencv_contrib/modules \
+-D PYTHON3_LIBRARY=$PY3_DIR/lib \
+-D PYTHON3_INCLUDE_DIR=$PY3_DIR/include/python3.6m \
+-D PYTHON3_EXECUTABLE=$HOME/.pyenv/shims/python \
+-D BUILD_opencv_python2=OFF \
+-D BUILD_opencv_python3=ON \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_C_EXAMPLES=OFF \
+-D BUILD_EXAMPLES=ON ..
+
+# For Python 2
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D OPENCV_EXTRA_MODULES_PATH=/Users/emanuelcortes/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project/opencv_contrib/modules \
+	-D PYTHON2_PACKAGES_PATH=/Users/emanuelcortes/Documents/Senior_Year/Winter_Quarter_2018/CS325B/air_quality_project/.env_python3/lib/python2.7/site-packages \
+	-D PYTHON2_LIBRARY=/System/Library/Frameworks/Python.framework/Versions/2.7/bin \
+	-D PYTHON2_INCLUDE_DIR=/System/Library/Frameworks/Python.framework/Headers \
+	-D BUILD_opencv_python2=ON \
+	-D BUILD_opencv_python3=OFF \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D INSTALL_C_EXAMPLES=OFF \
+	-D BUILD_EXAMPLES=ON ..
+
+make -j4
+sudo make install
+
+ cd /usr/local/lib/python3.5/site-packages/
+ mv cv2.cpython-35m-darwin.so cv2.so
+ cd /Users/emanuelcortes/Documents/Senior_Year/Winter_Quarter_2018/CS199/.env/lib/python3.5/site-packages/
+ ln -s /usr/local/lib/python3.5/site-packages/cv2.so cv2.so
+
+1.) USE PCA + SVR
+2.) Multiple Feature Extractor with Multiple Kernel Learning
+3.) 
+
+
+sudo chmod a+w /mnt
+cd /mnt
+rm -r mounted_bucket
+mkdir mounted_bucket
+sudo chmod a+w /mnt/mnt/mounted_bucket
+
+gcsfuse --implicit-dirs cs325b-dataset-for-week4-presentation /mnt/mnt/mounted_bucket
+gcsfuse --implicit-dirs cs325b-for-csv-files /mnt/mnt/mounted_bucket_csv_files
+gcsfuse --implicit-dirs cs325b-week6-dataset
+
+
+
+
+fusermount -u /mnt/mnt/mounted_bucket
+fusermount -u /mnt/mnt/mounted_bucket_csv_files
+
+
+gsutil -m cp gs://es262-airquality/00000030/00000030_20130103_172844.jpg gs://cs325b-dataset-for-week4-presentation/00000030/2013
+
+gsutil -m cp gs://es262-airquality/00000030/00000030_20130102_222841.jpg gs://cs325b-dataset-for-week4-presentation/00000030/2013
+
+gsutil -m cp gs://es262-airquality/00005207/00005207_20130324_182718.jpg gs://cs325b-dataset-for-week4-presentation/00005207/2013
+
+gsutil -m cp gs://es262-airquality/00005207/00005207_20130324_182941.jpg gs://cs325b-dataset-for-week4-presentation/00005207/2013
+
+
+gsutil -m cp gs://es262-airquality/00021587/00021587_20160526_124650.jpg gs://cs325b-dataset-for-week4-presentation/00021587/2016
+
+gsutil -m cp gs://es261-airquality gs://cs325b-for-csv-files 
+
+# Converting from Caffe To Tensorflow
+ python ../caffe-tensorflow-python3/convert.py --caffemodel DehazeNet.caffeemodel DehazeNet.prototxt  --data-output-path output.mat --code-output-path output.py --standalone-output-path standalone.pb
+
+
+ find / -type f -name "00021587_20160526_124650.jpg"
+  find / -type f -name "cv2.cpython-36m-darwin.so"
+
+
+32283.pts-0.cs325b-air-quality-cpu-instance2
+
+
+tensorboard --logdir=path/to/log-directory
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000004_experiment_2018-02-17_02:47:31_VGG_experiment_week7_presentation_testing_with_adam_with_multiple_dev_writers
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000005_experiment_2018-02-17_05:06:06_DEHAZENET_experiment_week7_presentation_testing_with_adam
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000005_experiment_2018-02-17_07:26:32_DEHAZENET_experiment_week7_presentation_testing_with_adam
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000006_experiment_2018-02-20_08:10:15_VGG_experiment_week7_presentation_testing_with_adam_with_multiple_dev_writers_with_more_metrics
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000007_experiment_2018-02-20_10:08:41_ResNet_experiment_week7_presentation_testing_with_adam_with_multiple_dev_writers_with_multiple_metrics
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000008_experiment_2018-02-20_11:39:40_DEHAZENET_experiment_week7_presentation_testing_with_adam_with_multiple_dev_writers_with_multiple_metrics
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000010_experiment_2018-02-27_09:51:54_VGG_experiment_week8_presentation_testing_overfitting_on_a_small_dataset
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000012_experiment_2018-02-27_11:08:59_ResNet_experiment_week8_presentation_entire_dataset
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000011_experiment_2018-02-27_10:34:55_ResNet_experiment_week8_presentation_testing_overfitting_on_a_small_dataset
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000013_experiment_2018-02-27_15:13:55_VGG_experiment_week8_presentation_entire_dataset
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000001_experiment_2018-03-05_11:37:57_ResNet_experiment_final_draft_on_webcamId_1066
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000001_experiment_2018-03-05_12:19:25_ResNet_experiment_final_draft_on_webcamId_1066
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000001_experiment_2018-03-05_13:10:07_ResNet_experiment_final_draft_on_webcamId_1066
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000001_experiment_2018-03-05_13:10:07_ResNet_experiment_final_draft_on_webcamId_1066
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000002_experiment_2018-03-05_15:28:05_DEHAZENET_experiment_final_paper_webcamId_1066
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000001_experiment_2018-03-08_18:55:19_DEHAZENET_experiment_final_presentation_webcamId_1066
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000001_experiment_2018-03-08_20:25:58_DEHAZENET_experiment_final_presentation_webcamId_1066
+
+
+tensorboard --logdir=/home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary/0000000002_experiment_2018-03-10_05:05:53_VGG_experiment_final_presentation_webcamId_1066_with_regression
+
+
+
+tensorboard --logdir=/mnt/mnt/mounted_bucket/results_for_final_presentation/summary/0000000001_experiment_2018-03-11_04:13:08_VGG_experiment_final_presentation_webcamId_1066_with_regression/
+
+
+tensorboard --logdir=/mnt/mnt/mounted_bucket/results_for_final_presentation/summary/0000000002_experiment_2018-03-11_17:21:05_RESNET_experiment_final_presentation_webcamId_1066_with_regression/
+
+tensorboard --logdir=/mnt/mnt/mounted_bucket/results_for_final_presentation/summary/0000000003_experiment_2018-03-11_23:15:22_VGG_experiment_final_presentation_webcamId_1066_with_regression_with_fixed_initialization/
+
+
+tensorboard --logdir=/mnt/mnt/mounted_bucket/results_for_final_presentation/summary/0000000005_experiment_2018-03-12_07:47:04_RESNET_experiment_final_presentation_webcamId_1066_with_regression_with_fixed_initialization_without_saving_model/
+
+
+
+tensorboard --logdir=/mnt/mnt/mounted_bucket/results_for_final_presentation/summary/0000000004_experiment_2018-03-12_03:32:25_VGG_experiment_final_presentation_webcamId_1066_with_regression_with_fixed_initialization_without_saving_model/
+
+
+tensorboard --logdir=/mnt/mnt/mounted_bucket/results_for_final_presentation/summary/0000000007_experiment_2018-03-13_00:49:24_RESNET_experiment_final_presentation_webcamId_1066_with_regression_with_one_process_for_training_and_validation/
+
+tensorboard --logdir=/mnt/mnt/mounted_bucket/results_for_final_presentation/summary/0000000007_experiment_2018-03-13_03:05:24_RESNET_experiment_final_presentation_webcamId_1066_with_regression_with_one_process_for_training_and_validation/
+
+
+gcsfuse --implicit-dirs manny_logs /home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/logs
+gcsfuse --implicit-dirs manny_summary /home/mannyldz956/CS325B-Big-Brother-Air-Quality-Group-/experiments/summary
+
+
+The following instructions set up apt-get to see updates to gcsfuse, and are supported for the artful, zesty, yakkety, xenial, and trusty releases of Ubuntu, and the jessie release of Debian. (Run lsb_release -c to find your release codename.) Users of older releases should follow the instructions for other distributions below.
+
+Add the gcsfuse distribution URL as a package source and import its public key:
+
+
+
+Important statistics:
+
+Webcam Id 1066
+______________________
+
+31911 - Num of Total Images
+21351 - Num of Training Images
+10560 - Num of Non-Training Images
+
+2009 00-09 4260
+2009 10-19 773
+2009 20-29 221
+2009 30-39 49
+2009 40-49 6
+2009 50-59 4
+2010 00-09 2830
+2010 10-19 314
+2010 20-29 93
+2010 30-39 14
+2010 40-49 0
+2010 50-59 0
+2011 00-09 1911
+2011 10-19 245
+2011 20-29 44
+2011 30-39 4
+2011 40-49 0
+2011 50-59 0
+2012 00-09 2626
+2012 10-19 283
+2012 20-29 85
+2012 30-39 24
+2012 40-49 11
+2012 50-59 0
+2013 00-09 3170
+2013 10-19 424
+2013 20-29 57
+2013 30-39 4
+2013 40-49 4
+2013 50-59 1
+2014 00-09 3399
+2014 10-19 401
+2014 20-29 70
+2014 30-39 18
+2014 40-49 2
+2014 50-59 4
+END OF COUNTS FOR TRAINING SEGMENTATION
+SHOULD HAVE THE FOLLOWING LENGTHS
+10560
+5280 
+END OF - SHOULD HAVE THE FOLLOWING LENGTHS
+Actual Lengths
+10560
+5280 - Num of Dev Examples
+5280 - Num of Test Examples
+
+----------------------------------------------------------------------
+
+Webcam Id 17603
+29130 - Num of Total Images
+22864 - Num of Training Images
+6266 - Num of Non-Training Images
+PRINTING COUNTS FOR TRAINING SEGMENTATIONS
+2009 00-09 0
+2009 10-19 0
+2009 20-29 0
+2009 30-39 0
+2009 40-49 0
+2009 50-59 0
+2010 00-09 0
+2010 10-19 0
+2010 20-29 0
+2010 30-39 0
+2010 40-49 0
+2010 50-59 0
+2011 00-09 0
+2011 10-19 0
+2011 20-29 0
+2011 30-39 0
+2011 40-49 0
+2011 50-59 0
+2012 00-09 415 mnt/mnt/mounted_bucket/tfRecord_datasets_with_all_features/TRAIN_tfrecord_with_all_features_17603_year_2012_pmRange_00-09.tfrecord
+2012 10-19 461 mnt/mnt/mounted_bucket/tfRecord_datasets_with_all_features/TRAIN_tfrecord_with_all_features_17603_year_2012_pmRange_10-19.tfrecord
+2012 20-29 107
+2012 30-39 32
+2012 40-49 7
+2012 50-59 10
+2013 00-09 1030
+2013 10-19 992
+2013 20-29 254
+2013 30-39 38
+2013 40-49 2
+2013 50-59 0
+2014 00-09 7660
+2014 10-19 9478
+2014 20-29 2008
+2014 30-39 350
+2014 40-49 8
+2014 50-59 12
+END OF COUNTS FOR TRAINING SEGMENTATION
+SHOULD HAVE THE FOLLOWING LENGTHS
+6266
+3133
+END OF - SHOULD HAVE THE FOLLOWING LENGTHS
+Actual Lengths
+6266
+3133
+3133
+
+Webcam Id 21587 
+31502 - Num of Total Images
+19149 - Num of Training Images
+12353 - Num of Non-Training Images
+PRINTING COUNTS FOR TRAINING SEGMENTATIONS
+2009 00-09 0
+2009 10-19 0
+2009 20-29 0
+2009 30-39 0
+2009 40-49 0
+2009 50-59 0
+2010 00-09 0
+2010 10-19 0
+2010 20-29 0
+2010 30-39 0
+2010 40-49 0
+2010 50-59 0
+2011 00-09 0
+2011 10-19 0
+2011 20-29 0
+2011 30-39 0
+2011 40-49 0
+2011 50-59 0
+2012 00-09 1023
+2012 10-19 738
+2012 20-29 333
+2012 30-39 86
+2012 40-49 32
+2012 50-59 5
+2013 00-09 4795
+2013 10-19 4672
+2013 20-29 1739
+2013 30-39 425
+2013 40-49 109
+2013 50-59 23
+2014 00-09 2011
+2014 10-19 2103
+2014 20-29 740
+2014 30-39 228
+2014 40-49 65
+2014 50-59 22
+END OF COUNTS FOR TRAINING SEGMENTATION
+SHOULD HAVE THE FOLLOWING LENGTHS
+12353
+6176
+END OF - SHOULD HAVE THE FOLLOWING LENGTHS
+Actual Lengths
+12353
+6176
+6177
+
+
+python  create_dataset_by_raw_data.py  --mounted_root_directory=/mnt/mnt/mounted_bucket --directory_to_save_dataset_by_webcamId_and_pmRange=npy_datasets_by_webcamId_and_pmRange_TESTING123/
+
+
+
+

@@ -1,0 +1,287 @@
+############################################################################
+# 1 -- Accessing a Google cloud project 
+############################################################################
+
+>> Link for the Google Cloud project:
+
+https://console.cloud.google.com/storage/browser?project=cs399-summer-project-adele
+https://console.cloud.google.com/storage/browser?project=cs325b-project
+
+>> copying contents between 2 different buckets, eg all files:
+
+
+gcloud auth login
+>> gsutil -m cp -r gs://SOURCE_BUCKET_NAME/* gs://DESTINATION_BUCKET_NAME
+gsutil -m cp -r gs://cs325b-for-csv-files/* gs://old-cs325b-for-csv-files
+
+gsutil -m cp -r gs://cs325b-es262-airquality/00013589/* gs://old-cs325b-dataset-for-week4-presentation/00013589
+
+
+############################################################################
+# 2 -- Creating a bucket on the Google Compute Engine 
+############################################################################
+
+
+>> for CS399 as opposed to CS325b, mounting bucket /mnt/mnt/mounted_bucket
+
+sudo mkdir /mnt/mnt/mounted_bucket
+sudo chmod a+w /mnt/mnt/mounted_bucket/
+
+
+>> then transfer the contents from old-cs325b-dataset-for-week4-presentation to /mnt/mnt/mounted_bucket
+
+gcsfuse --implicit-dirs old-cs325b-dataset-for-week4-presentation /mnt/mnt/mounted_bucket
+
+>> unmount the bucket:
+sudo fusermount -u /mnt/mnt/mounted_bucket
+sudo remove -r /mnt/mnt/mounted_bucket
+
+
+
+############################################################################
+# 3 -- Setting up a jupyter notebook from Google Compute platform
+############################################################################
+
+>> Make external IP address as static -- step 4 in the tutorial 
+https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52
+
+>> Change the firewall setting -- step 5
+
+port = 5000
+
+>> Set up the VM server, type in the following into an SSH session:
+jupyter notebook --generate-config
+ls ~/.jupyter/jupyter_notebook_config.py
+
+## launches the browser
+jupyter-notebook --no-browser --port=5000  
+
+## inside the browser:
+>> http://<External Static IP Address>:<Port Number>
+
+>> for CPU:
+http://35.197.30.20:5000
+
+http://35.199.178.10:5000
+
+http://104.198.106.203:5000
+
+http://35.233.186.62:5000
+
+http://35.230.58.220:5000
+
+http://104.197.157.105:5000
+
+http://35.232.8.206:5000
+
+http://35.192.37.96:5000
+
+http://104.197.157.105:5000
+
+
+http://35.230.72.199:5000
+
+http://35.227.156.184:5000
+
+TODO:
+
+Run gpu something and screen out the process, then run:
+
+NVIDIA-smi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dpkg -l | grep -i nvidia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############################################################################
+# 4 -- using a terminal to connect to a GCE instance 
+############################################################################
+
+ssh-keygen -t rsa -f ~/.ssh/adele_filename -C adelekuzmiakova
+
+## Access public key
+cat ~/.ssh/adele_filename.pub
+
+
+ssh -i /Users/adele/.ssh/adele_filename akuzmiakova@[External IP]
+
+
+
+############################################################################
+# 5 -- using a terminal to connect to a GCE instance 
+############################################################################
+
+
+>> detach a screen:
+Ctrl + a + d
+
+>> reattach to a screen
+screen -ls
+screen -r 3262.pts-0.cpu-instance-1
+
+screen -X -S [session # you want to kill] quit
+
+
+
+
+
+
+
+
+
+############################################################################
+################## Notes on how to start jupyter notebook ##################
+############################################################################
+
+## go to the project directory:
+## eg
+
+cd /Users/adele/Desktop/CS325b_project/CS325B-Big-Brother-Air-Quality-Group-
+
+virtualenv -p python3.5 .env
+source .env/bin/activate         
+# Activate the virtual environment
+
+virtualenv -p python3.5 .env_tensorflow-1.9
+
+## If using python 3
+
+pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.3.0-py3-none-any.whl
+pip install jupyter
+pip install numpy
+pip install matplotlib
+pip install seaborn
+pip install scipy
+pip install imageio
+pip install scikit-image
+pip install opencv-python==3.4.0.12
+pip install pandas_ml
+pip install imutils
+
+
+>>
+virtualenv -p python3.5 .env_tensorflow-1.9
+source .env_tensorflow-1.9/bin/activate 
+
+>> Tensorflow installation:
+
+## CPU v 1.3
+
+
+source /home/dfd/env35/bin/activate
+
+pip3 install --upgrade \
+https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl
+
+
+
+## CPU v 1.9
+
+pip3 install --upgrade \
+https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.9.0-cp35-cp35m-linux_x86_64.whl
+
+
+## GPU
+pip3 install --upgrade \
+https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.3.0-cp35-cp35m-linux_x86_64.whl
+
+pip3 install --upgrade \
+https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.4.0-cp35-cp35m-linux_x86_64.whl
+
+
+>> reference website:
+https://www.tensorflow.org/install/install_linux#NVIDIARequirements
+
+
+## GPU v 1.9
+
+pip3 install --upgrade \
+https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.9.0-cp35-cp35m-linux_x86_64.whl
+
+
+
+pip install jupyter
+pip install matplotlib
+pip install seaborn
+pip install scipy
+pip install imageio
+pip install scikit-image
+pip install opencv-python==3.4.0.12
+pip install numpy==1.14.5
+pip install Keras
+pip install imutils
+
+
+
+
+
+import matplotlib
+matplotlib.use('agg')
+import matplotlib.pyplot as plt
+
+
+
+
+
+
+### When creating instances, use "cs325b-webcam-air-quality-gph" image
+
+
+
+some links:
+https://adeshpande3.github.io/adeshpande3.github.io/
+A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/
+
+https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2
+
+## Current working script on modifying images:
+
+/Users/adele/Desktop/CS325b_project/CS325B-Big-Brother-Air-Quality-Group-/models/deep_learning/cnns/DehazeNet/convert_numpy_arrays_to_tensorflow_with_cropping.ipynb
+
+
+
+
+
+ to run tensorflow 1.9:
+
+ gcloud compute scp /Users/adele/Downloads/cudnn-9.0-linux-x64-v7.1.tgz akuzmiakova@gpu-instance-7:
+
+
+ cd $HOME
+
+tar xzvf cudnn-8.0-linux-x64-v5.1.tgz
+
+sudo cp cuda/lib64/* /usr/local/cuda/lib64/
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include/
+
+rm -rf ~/cuda
+rm cudnn-8.0-linux-x64-v5.1.tgz
+
+
