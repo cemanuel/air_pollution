@@ -9,7 +9,7 @@ In this task, we build convolutional neural network (CNN) model to predict the p
 ### Workflow :
 1) Using a pretrained (CNN) model to output a transmission map from
 2) Run the transmission map on a convolutional neural network module and output a prediction.
-3) Compare the root mean square error of predictions from the CNN model to predictions made from doing a simple linear regression on hand-engineering features
+3) Compare the predictions from the CNN model to predictions made from doing a simple linear regression on hand-engineering features
 
 ### Hand Engineered Features for Simple
 1) Saturation
