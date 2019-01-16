@@ -10,7 +10,7 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 ### Dataset :
 
-1) Example:
+1) Example(s):
 
 <img src="https://github.com/cemanuel/air_pollution/blob/master/dataset_examples.png" width="350" height="250">
 
