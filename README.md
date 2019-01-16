@@ -16,8 +16,7 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 2) Location(s) 20+:
 
-
-
+![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/dataset_locations.png)
 
 3) Normalizated Distrubtion of Particle Matter (PM) values:
 
