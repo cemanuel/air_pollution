@@ -29,7 +29,7 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 2) Run the transmission map on a convolutional neural network module and output a prediction.
 3) Compare the predictions from the CNN model to predictions made from doing a simple linear regression on hand-engineered features
 
-### Hand Engineered Features for Simple Linear Regression Analysis
+### Hand Engineered Features (Related to Haze Detection) for Simple Linear Regression Analysis
 1) Transmission Values:  Because a high concentration pollutants can affect the amount of sunlight we see in the sky, lower transmission values might correlate with higher Particle Matter (PM) values.
 
 2) Dark Channel: Converts a RGB channel to a one-channel (grayscale) image where each pixel is the channel-wise maximum. Then, 1D kernel is spatially applied on the one-channel (grayscale image) A convolution applied spatially across the imaget that takes the median value of the patch.
