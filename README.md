@@ -34,16 +34,13 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 2) Dark Channel: Converts a RGB channel to a one-channel (grayscale) image where each pixel is the channel-wise maximum. Then, 1D kernel is spatially applied on the one-channel (grayscale image) A convolution applied spatially across the imaget that takes the median value of the patch.
 
-3) Atmospheric Light: 
+3) Saturation: Contrast in image processing is usually de-fined as a ratio between the darkest and the brightest spotsof an image. We hope that images that is highly polluted, the ratio is low  and relatively high for less polluted images
 
-4) Saturation: Contrast in image processing is usually de-fined as a ratio between the darkest and the brightest spotsof an image. We hope that images that is highly polluted, the ratio is low  and relatively high for less polluted images
+4) Power Spectrum: We apply a fouier-transform on the images. In short, the smaller the value of the atmospheric light transmission function, the denser the fog (which can be composed of pollutants), the higher the frequency of the image, and the lower the spectral energy, and vice versa. Therefore, frequency-domain features can be used to judge if there is haze in the image.
 
-5) Power Spectrum
+5) Time: hour, day, month
 
-6) Time: hour, day, month
-
-7) Weather Features
-
+6) Weather Features
 
 ### Results:
 
