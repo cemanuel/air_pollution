@@ -12,7 +12,7 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 1) Example:
 
-![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/dataset_examples.png)
+<img src="https://github.com/cemanuel/air_pollution/blob/master/dataset_examples.png" width="350" height="250">
 
 2) Location(s) 20+:
 
