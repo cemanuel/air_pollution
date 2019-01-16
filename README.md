@@ -23,6 +23,8 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 
 ### Workflow :
+![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/workflow.png)
+
 1) Using a pretrained (CNN) model to output a transmission map from
 2) Run the transmission map on a convolutional neural network module and output a prediction.
 3) Compare the predictions from the CNN model to predictions made from doing a simple linear regression on hand-engineered features
