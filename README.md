@@ -19,8 +19,7 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 ![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/dataset_locations.png)
 
 3) Normalizated Distrubtion of Particle Matter (PM) values:
-
-![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/dataset_distribution.png)
+<img src="https://github.com/cemanuel/air_pollution/blob/master/dataset_distribution.png" width="275" height="250">
 
 
 ### Workflow :
