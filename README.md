@@ -41,10 +41,3 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 5) Time: hour, day, month
 
 6) Weather Features
-
-### Results:
-
-
-### Discussion:
-1) For most of the sites, the CNN architecture did not perform as well as
-2) For both CNN architecture and simple linear regression, we achieved higher accuracy on sites that had lower PM values than sites with higher PM values.
