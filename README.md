@@ -42,6 +42,10 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 6) Weather Features
 
+### Results
+
+
+
 ### Discussion
 
 1.) Pretrained models, VGG-16 and Resnet, achieved  R-2 coefficient scores than the baseline methods and our model, DehazeNet. As a result, there are other features besides haze features that is helping the model to quantify pollution in the images. However, these pretrained models might be overfitting on specific sites. A model was trained on an Alaskan site, achieving an R-2 coefficient of 0.38. When this same model was evaluated on a site in St.Louis, Missouri, the R-2 coefficient was 0.03.
