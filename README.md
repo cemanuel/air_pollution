@@ -25,9 +25,10 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 ### Workflow :
 ![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/workflow.png)
 
-1) Using a pretrained (CNN) model to output a transmission map from
+1) Using a pretrained (CNN) model to output a transmission map.
+2) Train a convolutional neural network module to output a prediction for the air quality from the
 2) Run the transmission map on a convolutional neural network module and output a prediction.
-3) Compare the predictions from the CNN model to predictions made from doing a simple linear regression on hand-engineered features
+3) Compare the predictions from the CNN model to predictions made from doing a simple linear regression on hand-engineered features and pretrained models that process the raw webcam images.
 
 ### Hand Engineered Features (Related to Haze Detection) for Simple Linear Regression Analysis
 1) Transmission Values:  Because a high concentration pollutants can affect the amount of sunlight we see in the sky, lower transmission values might correlate with higher Particle Matter (PM) values.
@@ -48,6 +49,6 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 ### Discussion
 
-1.) Pretrained models, VGG-16 and Resnet, achieved  higher R-2 coefficient scores than the baseline methods and our model, DehazeNet. As a result, there are other features besides haze features that is helping the model to quantify pollution in the images. However, these pretrained models might be overfitting on specific sites. A model was trained on an Alaskan site, achieving an R-2 coefficient of 0.38. When this same model was evaluated on a site in St.Louis, Missouri, the R-2 coefficient was 0.03.
+1.) Pretrained models, VGG-16 and Resnet, achieved  higher R-2 coefficient scores than the baseline methods and our model, DehazeNet. As a result, there are other features besides haze features that is helping the model to quantify pollution in the images. However, these pretrained models might be overfitting on specific sites. A model was trained on an Alaskan site, achieving an R-2 coefficient of 0.38. When this same model was evaluated on a site in St.Louis, Missouri, the R-2 coefficient was 0.03. The DehazeNet and the baseline methods were able to give more consistent R-2 coefficent values across multiple cites.
 
 2.) All models achieved better predictions for sites that had lower particle matter (PM) values. This can be explained by the distribution of PM values in the United States. Other studies in air pollution focused on countries with high pollution. As a result, the results in those studies can not be compared with our results due to differences in the distribution of PM values.
