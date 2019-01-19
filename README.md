@@ -45,7 +45,7 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 ### Results
 
-![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/results_air_quality.png)
+![Alt Text](https://github.com/cemanuel/air_pollution/blob/master/air_quality_results.png)
 
 ### Discussion
 
