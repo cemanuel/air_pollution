@@ -48,6 +48,6 @@ In this task, we build convolutional neural network (CNN) model to predict Parti
 
 ### Discussion
 
-1.) Pretrained models, VGG-16 and Resnet, achieved  R-2 coefficient scores than the baseline methods and our model, DehazeNet. As a result, there are other features besides haze features that is helping the model to quantify pollution in the images. However, these pretrained models might be overfitting on specific sites. A model was trained on an Alaskan site, achieving an R-2 coefficient of 0.38. When this same model was evaluated on a site in St.Louis, Missouri, the R-2 coefficient was 0.03.
+1.) Pretrained models, VGG-16 and Resnet, achieved  higher R-2 coefficient scores than the baseline methods and our model, DehazeNet. As a result, there are other features besides haze features that is helping the model to quantify pollution in the images. However, these pretrained models might be overfitting on specific sites. A model was trained on an Alaskan site, achieving an R-2 coefficient of 0.38. When this same model was evaluated on a site in St.Louis, Missouri, the R-2 coefficient was 0.03.
 
 2.) All models achieved better predictions for sites that had lower particle matter (PM) values. This can be explained by the distribution of PM values in the United States. Other studies in air pollution focused on countries with high pollution. As a result, the results in those studies can not be compared with our results due to differences in the distribution of PM values.
